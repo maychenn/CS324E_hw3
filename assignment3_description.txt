@@ -1,0 +1,6 @@
+Assignment 3 was a collaboration between May Chen, Shariq Dharani, Matthew Wade. May and Matthew split work on 'extract_words.py'. Matthew wrote the 'allwords' part and May wrote the 'uniquewords' and 'wordfrequency' parts. Shariq worked on the Wordle and 'a3_novelvisualization' parts of the project. 
+May also worked on the 'a3_wordfrequency' part. 
+
+***Novel Visualization***
+
+For novel visualization, font 'Kano' was chosen for readability and simplicity. I chose the color palette (olive, grey and yellow) after looking at the many different covers for Anthem, as its dark and dreary theme fits the palette as well. Anthem takes place in a dystopian future in which the concept of individuality has been eliminated. I decided on a font size of 30 in reference to the main character Liberty 5-3000. Since individuality is a common theme in the story, I decided on the more common (shorter) words having boring, darker colors (grey, dark olive) and rarer (longer) words having a brighter color (yellow). 
