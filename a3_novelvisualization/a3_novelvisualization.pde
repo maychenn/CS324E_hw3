@@ -8,7 +8,6 @@ color[] palette = {
 
 void setup() {
   size(700, 600);
-  background(#74763E); //light olive grey 
   fontKano = createFont("Kano.otf", 30);
   textFont(fontKano);
   uniqueWords = loadStrings("uniquewords.txt");
@@ -16,6 +15,7 @@ void setup() {
 }
 
 void draw() {
+  background(#74763E); //light olive grey 
   int y = 0;
   int wordRandom; //random word
   int wordWidth;  //width of word in pixels
@@ -46,4 +46,9 @@ void populate(int x, int y, int random) {
   }
   //fill(palette[int(random(palette.length))]); //fills with random color
   text(uniqueWords[random], x, y); //choses random word from txt file
+}
+
+//mouse click, new selection of random, unique words will replace
+void mousePressed() {
+  redraw();
 }
