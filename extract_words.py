@@ -26,40 +26,53 @@ def main():
     file_alt.close()
     allwords_outfile.close()
 
-    
-    #allwords = ["apple", "apple", "orange", "yes", "yes", "yes", "no"]
-    for word in allwords:
-        word = word.lower()
-
-    #word freq
+    #frequency of each word
     word_freq = dict()
     for word in allwords:
         if (word in word_freq):
             word_freq[word] += 1
         else:
             word_freq[word] = 1
-    print(word_freq)
-    
-    #sorts by increasing freq (word_freq is now a list of lists)
+            
+    #frequency of word frequency
+    freq_word_freq = dict()
+    for word in word_freq:
+        if word_freq[word] in freq_word_freq:
+            freq_word_freq[word_freq[word]] += 1
+        else:
+            freq_word_freq[word_freq[word]] = 1
+            
+    #sorts by increasing word frequency (freq_word_freq is now a 2D list)
     word_freq = sorted(([y,x] for x,y in word_freq.items()))
-    print(word_freq)
+    
+    #sorts by increasing freq of word freq (freq_word_freq is now a 2D list)
+    freq_word_freq = sorted(([x,y] for x,y in freq_word_freq.items()))
     
     #writes to wordfrequency file
     word_frequency = open("wordfrequency.txt", 'w')
-    for freq in word_freq:
-        line = str(freq[0]) + ": " + freq[1] + "\n"
+    counter = 0
+    for freq in freq_word_freq:
+        if counter < len(freq_word_freq)-1:
+            line = str(freq[0]) + ": " + str(freq[1]) + "\n"
+            counter += 1
+        else:
+            line = str(freq[0]) + ": " + str(freq[1])
         word_frequency.write(line)
         
     #unique words
     unique_words = open("uniquewords.txt", 'w')
-    
-    for word in word_freq:
-        if (word[0] == 1):
-            line = str(word[1]) + "\n"
+
+    for word in range(len(word_freq)):
+        if (word_freq[word][0] == 1) and (word_freq[word+1][0] == 1):
+            line = str(word_freq[word][1]) + "\n"
             unique_words.write(line)
+        else:
+            line = str(word_freq[word][1])
+            unique_words.write(line)
+            break
 
-    print("done")
-
-    #file.close()
+    file.close()
+    unique_words.close()
+    word_frequency.close()
     
 main()
